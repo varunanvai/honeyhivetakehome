@@ -96,7 +96,7 @@ return {
     'statusCode': 200,
     'body': json.dumps('Messages processed successfully.')
 } 
-Step 5: A third Lambda function will be listening to the second SQS and when it has an update, it will read the output from s3 and run the metrics codeblocks on it for each input in its own dedicated EC2 instances. These metrics codeblocks will be aggregated into a report and stored in S3 for future analytics and safekeeping. 
+Step 5: A third Lambda function will be listening to the second SQS and when it has an update, it will read the output from s3 and run the metrics codeblocks on it for each input in its own dedicated EC2 instances. These metrics codeblocks will be aggregated into a report and stored in S3 for future analytics and safekeeping and organized in a similar way with the larger jobID folder containing subfolders for each input(labeled by the uniqueID) and its corresponding metrics outputs.
 Example code for lambda 
 def lambda_handler(event, context):
 sqs_client = boto3.client('sqs')
